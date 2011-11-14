@@ -1,9 +1,9 @@
-Interactive fiction, or text adventures, is a genre of game in which
-players interact in a text loop not unlike a REPL. The game provides a
-prompt, the player enters a command, and the game responds with the next
-prompt, possibly changing some internal state.
+Interactive fiction (hereafter IF), more commonly known as text adventures,
+is a genre of game in which players interact in a text loop not unlike a
+REPL. The game provides a prompt, the player enters a command, and the game
+responds with the next prompt, possibly changing some internal state.
 
-Commonly, the game's state includes a map of a physical space that the
+Typically, the game's state includes a map of a physical space that the
 player navigates with directional commands. The space consists of connected
 rooms, and within the rooms are objects and characters that the player can
 interact with, e.g. by {\em looking} around, {\em examining} something, 
@@ -11,8 +11,36 @@ interact with, e.g. by {\em looking} around, {\em examining} something,
 typically has an inventory to store taken objects and can apply commands to
 those objects.
 
-Interactive fiction is a ripe problem domain for programming languages
-because it keeps the focus on game mechanics.
+The author of a piece of interactive fiction is tasked with describing a
+rich setting and anticipating the player's actions.  With each new
+interactable object introduced, the space of game play explodes
+combinatorially. Of course, in order for the game to feel interactive, we
+can't anticipate and script a response to every action; we need to set up
+simple rules that {\em emergently generate} game content.  (In the game
+design world, this notion of generativity is refered to as {\em
+procedural}.) Most frameworks for writing interactive fiction deal with the
+combinatorial explosion by establishing broad defaults for every command;
+the IF author need only override default game responses to selected actions
+upon a new object she introduces.
 
-- Existing systems for writing it: Inform7, TADS, ?
+A key challenge in language design for any game programming is enabling
+such a rich space of possible games that feel generative and interactive
+rather than canned.  IF in particular is a ripe domain for programming
+languages because it introduces that richness of game design
+without the extra cruft of rendering. Everything is a turn-based, discrete
+state transition, which crank we can imagine turning on an extralinguistic
+interpreter; the language, then, need only be for {\em specifying game
+logic}. A programming language for interactive fiction could easily extend
+to prototyping games with fancier rendering systems, and indeed some
+like-minded game programmers have done this:
+http://eis-blog.ucsc.edu/2009/06/you-have-to-mine-the-ore/
+XXX move this to citation
+
+The majority of IF has been developed in the systems Inform (XXX cite), TADS,
+and ADRIFT. The authors of this work are primarily familiar with Inform,
+specifically Inform7. In Inform7, the author specifies game behavior by
+matching on a player action (possibly guarded by some condition) and
+specifying a state change. We hope to base our design on this basic idea
+but using ideas from logic programming and substructural logics to make
+games easier to specify and reason about.
 
