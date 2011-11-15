@@ -8,12 +8,12 @@ broke, unless the player fixed it...the list goes on and on.
 Some of these are subsumed by linear logic, but linear logic still does not
 provide a general account of writing rules and their exceptions. For this,
 we need a different logic, called defeasible
-logic\cite{Nute:1994:DL:186124.186131,Covington:1996:PPD:230996}, which innately allows reasoning about
-exceptions to rules.
+logic~\cite{Nute:1994:DL:186124.186131,Covington:1996:PPD:230996}, which
+innately allows reasoning about exceptions to rules.
 
 For example, suppose we have a simpler case of the above example, in which a
-room is lit by default, unless the lights are out, unless the user has a
-flashlight. We could write this in dProlog as follows:
+room is lit by default, unless the lights are out, unless the player has a
+flashlight. We could write this in d-Prolog as follows:
 
 \begin{verbatim}
     RD : {isRoom(X)} => lit(X).
@@ -24,6 +24,7 @@ flashlight. We could write this in dProlog as follows:
     RL > RD.
 \end{verbatim}
 
+\noindent
 Each of the three rules indicates one of these cases. In addition to the
 rules themselves, we define an ordering on the rules stating their
 precedence. Intuitively, the lights being out in a room override their

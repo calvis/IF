@@ -1,10 +1,10 @@
 \newcommand{\lolli}{\multimap}
 
-Linear logic~\cite{Girard87} lets you reason locally about state. Hypotheses must be used
-exactly once, though they can be reordered. For example, the proposition $A
-\otimes B \lolli B \otimes A$ is derivable, but neither $A \otimes B \lolli
-A$ nor $A \lolli A \otimes A$ is derivable ($\otimes$ is linear
-conjunction and $\lolli$ is linear implication).
+Linear logic~\cite{Girard87} lets us reason locally about state. Hypotheses
+must be used exactly once, though they can be reordered. For example, using
+$\otimes$ as linear conjunction and $\lolli$ as linear implication, the
+proposition $A \otimes B \lolli B \otimes A$ is derivable, but neither $A
+\otimes B \lolli A$ nor $A \lolli A \otimes A$ is derivable.
 
 A minimal example of an interactable object encoded as a linear logic
 program is toggling a switch:
@@ -15,8 +15,10 @@ program is toggling a switch:
     toggle : sw v * flip v u -o sw u.
 \end{verbatim}
 
-Implicitly each of these rules should have a $!$ modality in front allowing
-for arbitrary duplication because they are intended as persistent facts.
+\noindent
+Implicitly, we have two contexts: $\delta$, the ephemeral context, is where
+we put resources that can be consumed, whereas $\Gamma$, the persistent
+context, is where we put facts such as the rules defined above.
 
 Supposing a distinguished proposition \verb|end|, a standard linear sequent
 calculus for DILL (linear logic with $!$), and a desire to toggle the
@@ -68,6 +70,7 @@ corresponding to a trace of the program:
 \]
 }
 
+\noindent
 The unfinished derivation is the continuation of the program after toggling
 the switch. It represents a new choice point in the program where the human
 part of the interactive theorem prover could select a persistent rule from

@@ -10,7 +10,7 @@ interactive theorem proving, not terribly unlike what many PL researchers
 do regularly in systems like Coq, Isabelle, and Agda. Important questions
 to ask in ITP come up in IF as well: at what point should reasoning be
 filled in automatically? What proof strategy should that automatic
-reasoning employ? In the talk we'll try to argue that the proof theoretic
+reasoning employ? In the talk we will argue that the proof theoretic
 ideas of {\em forward chaining} and {\em left focus} play a key role in the
 IF setting.
 
@@ -28,6 +28,7 @@ find paths between nodes in a graph:
     path X Z :- edge X Y, path Y Z.
 \end{verbatim}
 
+\noindent
 Each block of code preceding a period is a {\em clause} of the program, and
 the capital-letter variables are implicitly universally quantified.
 The logical interpretation of this program is one in which there are atomic
@@ -38,21 +39,21 @@ and
 \[\forall x,y,z.\verb|edge|(x, y) \land \verb|path|(y, z) \implies 
 \verb|path|(x, z)\]
 
-One can create a graph by adding an additional clause for each edge (and
-lowercase identifiers for specific nodes) and then run a query such as
-\verb|path a X| to get a set of all the nodes reachable from $a$. The
+\noindent
+We can create a graph by adding an additional clause for each edge (with
+lowercase identifiers for specific nodes), then run a query such as
+\verb|path a X| to get the  set of all the nodes reachable from $a$. The
 execution of that program resembles constructing derivations of facts like
 \verb|path a b| from rules in the program along with its core rules for
 implication and quantification.
 
-One could imagine beginning to design a world with the basic logic
-programming toolset: you'd introduce predicates (or types) for each kind of
-thing in the world, like rooms and objects and people, and you could write
+We can imagine beginning to design a world with the basic logic
+programming toolset: we would introduce predicates (or types) for each kind of
+thing in the world, like rooms and objects and people, and we could write
 predicates like \verb|visible| to determine whether the player can see an
-object. But as soon as you want to talk about state change, standard logic
+object. But as soon as we want to talk about state change, standard logic
 programming fails us. For example, if we want to turn off a light, the
-visibility of certain objects goes away -- but treating the action as an
+visibility of certain objects goes away---but treating the action as an
 ordinary implication, the old facts stay around. Ordinary propositional
-logic of the kind Prolog is based on are {\em monotonic}: learning new
-facts can never erase old ones. This brings us to linear logic.
-
+logics (such as the basis of Prolog) are {\em monotonic}: learning new facts
+can never erase old ones. This brings us to linear logic.
