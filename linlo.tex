@@ -2,7 +2,7 @@
 
 Linear logic~\cite{Girard87} lets you reason locally about state. Hypotheses must be used
 exactly once, though they can be reordered. For example, the proposition $A
-\otimes B \lolli B \otimes C$ is derivable, but neither $A \otimes B \lolli
+\otimes B \lolli B \otimes A$ is derivable, but neither $A \otimes B \lolli
 A$ nor $A \lolli A \otimes A$ is derivable ($\otimes$ is linear
 conjunction and $\lolli$ is linear implication).
 
@@ -74,9 +74,10 @@ part of the interactive theorem prover could select a persistent rule from
 $\Gamma$.  Supposing we had many switches, levers, and knobs, this
 component of choice could be a lot like a gameplay interaction.
 
-At least one game creator has made linear logic proof search fun
-~\cite{theatrics}.
-% 
+%At least one game creator has made linear logic proof search fun
+%~\cite{theatrics}.
+
+
 % \subsection{Known issues}
 % 
 % An important aspect of this problem arises when you want to add {\em
