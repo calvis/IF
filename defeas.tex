@@ -1,7 +1,35 @@
-An important observation about interactive fiction is that rather than
-writing {\em rules}, we're really writing {\em exceptions} (in common, not
-PL, parlance). For example, we might like to say that the cave is dark,
-except when the player carries a light source -- except when the light source
-is switched off -- or when the character is on fire... and so on.
 
-XXX tweak example, expand
+Another weakness of vanilla logic programming is its inability to easily
+reason about exceptions to rules. A simple example is when determining
+whether or not a room is well-lit. By default, a room is lit, unless the
+lights are out, unless the player has a flashlight, unless the flashlight
+broke, unless the player fixed it...the list goes on and on.
+
+Some of these are subsumed by linear logic, but linear logic still does not
+provide a general account of writing rules and their exceptions. For this,
+we need a different logic, called defeasible
+logic\cite{Covington:1996:PPD:230996}, which innately allows reasoning about
+exceptions to rules.
+
+For example, suppose we have a simpler case of the above example, in which a
+room is lit by default, unless the lights are out, unless the user has a
+flashlight. We could write this in dProlog as follows:
+
+\begin{verbatim}
+    RD : {isRoom(X)} => lit(X).
+    RL : dark(X) => ~lit(X).
+    RF : {inRoom(X), has(flashlight)} => lit(X).
+    
+    RF > RL.
+    RL > RD.
+\end{verbatim}
+
+Each of the three rules indicates one of these cases. In addition to the
+rules themselves, we define an ordering on the rules stating their
+precedence. Intuitively, the lights being out in a room override their
+default illuminated status, and having a flashlight should illuminate the
+room even if the lights are out. Defeasible logic is a clean and elegant way
+of specifying rules such as these (and more complicated ones). It remains to
+be seen whether or not it would be subsumed by linear logic, but either way,
+this is a use case that we want to understand more thoroughly.
+>>>>>>> be62ae130ea65159baecdc050827edaa9408eda2
