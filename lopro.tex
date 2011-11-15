@@ -24,9 +24,8 @@ Prolog~\cite{Covington:1996:PPD:230996} program to
 find paths between nodes in a graph:
 
 \begin{verbatim}
-path X X.
-path X Z
-  :- edge X Y, path Y Z.
+    path X X.
+    path X Z :- edge X Y, path Y Z.
 \end{verbatim}
 
 Each block of code preceding a period is a {\em clause} of the program, and

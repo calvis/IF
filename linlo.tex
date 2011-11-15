@@ -10,9 +10,9 @@ A minimal example of an interactable object encoded as a linear logic
 program is toggling a switch:
 
 \begin{verbatim}
-flip on off.
-flip off on.
-toggle : sw v * flip v u -o sw u.
+    flip on off.
+    flip off on.
+    toggle : sw v * flip v u -o sw u.
 \end{verbatim}
 
 Implicitly each of these rules should have a $!$ modality in front allowing
