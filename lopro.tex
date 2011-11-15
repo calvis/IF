@@ -1,3 +1,24 @@
+A logic program is a set of initial facts (typically general and
+hypothetical) from which new facts can be generated and queries on the
+space of facts can be made. It can be viewed as an inference system and its
+execution as proof search.
+
+As a small example, consider the following Prolog (XXX cite) program to
+find paths between nodes in a graph:
+
+\begin{verbatim}
+path X X.
+path X Z
+  :- edge Z Y, path Y Z.
+\end{verbatim}
+
+
+
+Here's a very minimal example of an interaction in linear logic
+programming.
+
+% XXX toggle
+
 
 - Intensional vs extensional definition of a game object
 
