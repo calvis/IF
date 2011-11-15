@@ -3,7 +3,7 @@
 Linear logic~\cite{Girard87} lets you reason locally about state. Hypotheses must be used
 exactly once, though they can be reordered. For example, the proposition $A
 \otimes B \lolli B \otimes C$ is derivable, but neither $A \otimes B \lolli
-A$ nor $A \lolli A \otimes A$ is admissible ($\otimes$ is linear
+A$ nor $A \lolli A \otimes A$ is derivable ($\otimes$ is linear
 conjunction and $\lolli$ is linear implication).
 
 A minimal example of an interactable object encoded as a linear logic
@@ -23,7 +23,7 @@ calculus for DILL (linear logic with $!$), and a desire to toggle the
 switch from on to off, we could construct the following derivation
 corresponding to a trace of the program:
 
-\small{
+{\small
 \[
 \infer
 {
@@ -68,15 +68,20 @@ corresponding to a trace of the program:
 \]
 }
 
-The unfinished derivation is a choice point in the program where the human
-part of the interactive theorem prover could make a choice by selecting a
-persistent rule from $\Gamma$. 
+The unfinished derivation is the continuation of the program after toggling
+the switch. It represents a new choice point in the program where the human
+part of the interactive theorem prover could select a persistent rule from
+$\Gamma$.  Supposing we had many switches, levers, and knobs, this
+component of choice could be a lot like a gameplay interaction.
 
-\subsection{Known issues}
-
-An important aspect of this problem arises when you want to add {\em
-persistently learnable facts} over ephemeral facts. In the previous
-section, we mentioned the possibility of having a {\em visibility}
-predicate, which is clearly ephemeral but which we may wish to use as a
-precondition to a rule without consuming it. In the talk we may go into
-further detail.
+At least one game creator has made linear logic proof search fun
+~\cite{theatrics}.
+% 
+% \subsection{Known issues}
+% 
+% An important aspect of this problem arises when you want to add {\em
+% persistently learnable facts} over ephemeral facts. In the previous
+% section, we mentioned the possibility of having a {\em visibility}
+% predicate, which is clearly ephemeral but which we may wish to use as a
+% precondition to a rule without consuming it. In the talk we may go into
+% further detail.
